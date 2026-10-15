@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#090b20">
+  <meta name="description" content="Our Mural — a canvas we paint together, heart by heart, kept just for Mena.">
+  <title>Our Mural ✦ Love for Mena</title>
+  <link rel="canonical" href="https://menaammarpro.github.io/love-mural/">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Our Mural — for Mena">
+  <meta property="og:title" content="Our Mural ✦ Love for Mena">
+  <meta property="og:description" content="A canvas we paint together, heart by heart.">
+  <meta property="og:url" content="https://menaammarpro.github.io/love-mural/">
+  <meta property="og:image" content="https://menaammarpro.github.io/love-mural/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Our Mural — a canvas we paint together">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Our Mural ✦ Love for Mena">
+  <meta name="twitter:description" content="A canvas we paint together, heart by heart.">
+  <meta name="twitter:image" content="https://menaammarpro.github.io/love-mural/assets/og-image.png">
+  <link rel="stylesheet" href="css/theme.css">
+  <link rel="stylesheet" href="css/app.css">
+  <script src="js/theme-main.js" defer></script>
+  <script src="js/effects.js" defer></script>
+  <script src="js/app.js" defer></script>
+  <link rel="manifest" href="manifest.webmanifest">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Our Mural">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/icons/icon-192.png">
+</head>
+<body>
+  <canvas id="starfield" aria-hidden="true"></canvas>
+
+  <header class="site-header">
+    <a class="brand" href="index.html">✦ Our Mural</a>
+    <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false">Menu</button>
+    <nav class="nav-links" aria-label="Main navigation">
+      <a class="active" href="index.html">Home</a>
+      <a href="#paint">Paint</a>
+      <a href="#details">Details</a>
+      <a href="https://menaammarpro.github.io/loveformymena/">Our little universe ↗</a>
+      <button class="theme-toggle" type="button" aria-label="Toggle color theme">Theme</button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero mural-hero">
+      <p class="eyebrow">A CANVAS FOR TWO</p>
+      <div class="moon" aria-hidden="true">✦</div>
+      <p class="small-caption">Tap or drag to leave a little heart.</p>
+      <h1>Our <span>mural.</span></h1>
+      <p class="hero-description">
+        A wall we fill in together — hearts, stars, sparks. Come back to the same
+        canvas and keep adding. It waits for you, exactly where you left it.
+      </p>
+      <div class="hero-actions">
+        <a class="button button-primary" href="#paint">Start painting <span>♥</span></a>
+        <a class="button button-ghost" href="#details">About this wall</a>
+      </div>
+      <p class="signature">Made with love, just for you <span>♥</span></p>
+    </section>
+
+    <section class="section" id="paint">
+      <p class="eyebrow">THE WALL</p>
+      <h2>Paint <span>together.</span></h2>
+
+      <div class="mural-workspace">
+        <div class="canvas-wrap">
+          <canvas id="mural-canvas" width="800" height="500" aria-label="Our shared mural canvas"></canvas>
+          <p class="mural-hint" id="mural-hint">Tap or drag anywhere to leave your mark ♥</p>
+        </div>
+
+        <div class="mural-controls">
+          <div class="control-group">
+            <span class="control-label">Colour</span>
+            <div class="palette" id="palette">
+              <button class="swatch is-active" type="button" data-color="#ffffff" style="--swatch:#ffffff" aria-label="White"></button>
+              <button class="swatch" type="button" data-color="#ff9fcf" style="--swatch:#ff9fcf" aria-label="Pink"></button>
+              <button class="swatch" type="button" data-color="#b98bff" style="--swatch:#b98bff" aria-label="Purple"></button>
+              <button class="swatch" type="button" data-color="#ffd166" style="--swatch:#ffd166" aria-label="Gold"></button>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <span class="control-label">Shape</span>
+            <div class="brushes" id="brushes">
+              <button class="brush is-active" type="button" data-shape="heart" aria-label="Heart">♥</button>
+              <button class="brush" type="button" data-shape="star" aria-label="Star">★</button>
+              <button class="brush" type="button" data-shape="dot" aria-label="Dot">●</button>
+              <button class="brush" type="button" data-shape="spark" aria-label="Spark">✦</button>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <label class="control-label" for="size-slider">Size</label>
+            <input type="range" id="size-slider" min="10" max="60" value="26" step="2">
+          </div>
+
+          <div class="mural-actions">
+            <button class="button button-ghost" id="undo-mural" type="button">Undo</button>
+            <button class="button button-ghost" id="download-mural" type="button">Save as image</button>
+            <button class="button button-ghost" id="clear-mural" type="button">Clear the wall</button>
+          </div>
+        </div>
+      </div>
+
+      <p class="section-note" id="save-note" aria-live="polite"></p>
+    </section>
+
+    <section class="section" id="details">
+      <p class="eyebrow">JUST FOR US</p>
+      <h2>Details.</h2>
+      <div class="mural-meta">
+        <span class="diary-chip"><strong id="mural-count">0</strong> marks on the wall</span>
+      </div>
+      <div class="settings-actions">
+        <button class="button button-ghost" id="share-button" type="button">Share this page</button>
+      </div>
+      <p class="settings-note">Saved on this device only — no tracking, no network calls.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>Made with care <span>♥</span> for Mena</p>
+    <p class="footer-small">A little universe of its own ✦</p>
+  </footer>
+</body>
+</html>
